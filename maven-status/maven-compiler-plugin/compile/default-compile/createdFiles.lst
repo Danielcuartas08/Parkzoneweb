@@ -1,0 +1,6 @@
+controller\VehiculoServlet.class
+model\Persona.class
+dao\PersonaDAO.class
+config\ConexionDB.class
+dao\VehiculoDAO.class
+model\Vehiculo.class
