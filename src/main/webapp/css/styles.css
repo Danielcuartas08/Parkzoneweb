@@ -1,0 +1,202 @@
+/* ===   PARKZONE - CSS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+:root {
+  /* Paleta Principal */
+  --bg: #f8fafc;
+  --soft: #f1f5f9;
+  --card-bg: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  
+  /* Identidad: Amarillo Tránsito */
+  --brand: #ffc400;
+  --brandDark: #eab308;
+  --brandSoft: #fefce8;
+  
+  /* Estados */
+  --ok: #10b981;
+  --warn: #f59e0b;
+  --bad: #ef4444;
+  
+  /* Elevación y Formas */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --radius: 12px;
+}
+
+/* Reset Moderno */
+* { box-sizing: border-box; transition: all 0.2s ease-in-out; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Layout */
+.wrapper { width: min(1200px, 94%); margin: 0 auto; padding: 2rem 0 5rem; }
+
+/* Topbar con Efecto Glassmorphism */
+.topbar {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+}
+
+.topbar__inner {
+  width: min(1200px, 94%);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 0;
+}
+
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand img { width: 45px; height: 45px; object-fit: contain; }
+.brand .name strong { font-size: 1.2rem; font-weight: 800; color: var(--text); }
+
+/* Navegación Estilo "Pill" */
+.nav { display: flex; gap: 8px; }
+.nav a {
+  padding: 8px 16px;
+  border-radius: 99px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+.nav a:hover { color: var(--text); background: var(--soft); }
+.nav a.active {
+  background: var(--brandSoft);
+  color: var(--brandDark);
+  border-color: var(--brand);
+  font-weight: 600;
+}
+
+/* Hero Section */
+.hero {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+h1 { font-size: 2.25rem; font-weight: 800; margin: 0 0 0.5rem; color: var(--text); }
+
+/* Grid de Tarjetas */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+/* Formularios Profesionales */
+.field { margin-bottom: 1.25rem; }
+.field label { display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text); }
+.field input, .field select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #fff;
+}
+.field input:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(255, 196, 0, 0.2);
+}
+
+/* Botones con Feedback */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+
+.btn--primary {
+  background: var(--brand);
+  border-color: var(--brandDark);
+  color: var(--text);
+}
+.btn--primary:hover { background: var(--brandDark); transform: scale(1.02); }
+
+/* Alineación de 3 columnas para el nuevo formulario */
+.row-triple {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* En celulares, se apilan uno sobre otro */
+@media (max-width: 768px) {
+    .row-triple {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Estilo extra para el input focus */
+.field input:focus, .field select:focus {
+    border-color: var(--brand);
+    background: var(--brandSoft);
+    box-shadow: 0 0 0 4px rgba(255, 196, 0, 0.15);
+}
+
+/* Tablas Modernas */
+.table-container {
+  overflow-x: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+}
+.table th {
+  background: var(--soft);
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.table td { padding: 1rem; border-bottom: 1px solid var(--soft); }
+.table tr:hover { background: var(--brandSoft); }
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 2rem;
+  color: var(--muted);
+  font-size: 0.875rem;
+  border-top: 1px solid var(--border);
+}
